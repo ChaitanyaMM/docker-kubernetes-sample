@@ -1,0 +1,27 @@
+version: '3.2'
+
+networks:
+  cman:
+  
+services:
+  docker-kuberntes-sample:
+    image: kubesample
+    ports:
+     - "4500:8989"
+    deploy:
+      replicas: 2
+      restart_policy:
+       condition: on-failure
+    networks:
+      - cman
+#    links:
+#      - productcatalogue
+#      - stockmanager
+#  productcatalogue:
+#    image: imagepath
+#    ports:
+#     - "8020:8020"
+#  stockmanager:
+#    image: imagepath
+#    ports:
+#     - "8030:8030"
